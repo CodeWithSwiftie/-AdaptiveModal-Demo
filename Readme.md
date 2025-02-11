@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/Dependencies-None-green" alt="No Dependencies"/>
   <br><br>
   
-  <img src="demo.gif" 
+  <img src="AdaptiveModal-Demo/Assets/demo.gif" 
        width="500"
        style="border-radius: 10px"
        alt="Modal Demo Animation"/>
