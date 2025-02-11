@@ -10,10 +10,15 @@ import UIKit
 final class InvestmentOverviewController: UIViewController {
     private let headerImageView: UIImageView = {
         // Create image view with a system image
-        let imageView = UIImageView(image: UIImage(systemName: "chart.line.uptrend.xyaxis"))
+        let imageView = UIImageView(image: UIImage(systemName: "chart.xyaxis.line"))
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .systemIndigo
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        if #available(iOS 18, *) {
+            imageView.setSymbolImage(UIImage(systemName: "chart.bar.fill")!, contentTransition: .automatic)
+        }
+
         return imageView
     }()
     
@@ -30,9 +35,10 @@ final class InvestmentOverviewController: UIViewController {
     private let subtitleLabel: UILabel = {
         // Create subtitle label
         let label = UILabel()
-        label.text = "Total Portfolio Value"
-        label.font = .systemFont(ofSize: 16, weight: .medium)
-        label.textColor = .secondaryLabel
+        label.text = "Your Investment Overview"
+        label.font = .systemFont(ofSize: 13, weight: .semibold)
+        label.textColor = .tertiaryLabel
+        label.numberOfLines = 0
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -45,6 +51,11 @@ final class InvestmentOverviewController: UIViewController {
         button.configuration?.image = UIImage(systemName: "arrow.right")
         button.configuration?.imagePlacement = .trailing
         button.configuration?.cornerStyle = .capsule
+        button.configuration?.titleTextAttributesTransformer = .init({ attr in
+            var copy = attr
+            copy.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            return copy
+        })
         button.configuration?.background.backgroundColor = .systemIndigo
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -61,7 +72,7 @@ final class InvestmentOverviewController: UIViewController {
         view.backgroundColor = .systemGray5
         view.layer.cornerRadius = 36
         view.layer.masksToBounds = true
-        title = "Investment Overview"
+        title = "Overview"
         
         // Add subviews individually
         view.addSubview(headerImageView)
@@ -113,13 +124,14 @@ final class PortfolioDetailsController: UIViewController {
     private let stocksView = AssetTypeView(title: "Stocks", value: "$89,432.12", icon: "chart.xyaxis.line")
     private let cryptoView = AssetTypeView(title: "Crypto", value: "$23,654.77", icon: "bitcoinsign.circle")
     private let bondsView = AssetTypeView(title: "Bonds", value: "$11,481.00", icon: "building.columns")
-    private let cashView = AssetTypeView(title: "Cash", value: "$12,345.67", icon: "dollarsign.circle")
     
     private lazy var assetsStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [stocksView, cryptoView, bondsView, cashView])
+        let stack = UIStackView(arrangedSubviews: [stocksView, cryptoView, bondsView, subtitleLabel])
         stack.axis = .vertical
         stack.spacing = 16
         stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.setCustomSpacing(24, after: bondsView)
+        stack.setCustomSpacing(24, after: subtitleLabel)
         return stack
     }()
     
@@ -129,6 +141,11 @@ final class PortfolioDetailsController: UIViewController {
         button.configuration?.title = "Start Trading"
         button.configuration?.cornerStyle = .capsule
         button.configuration?.background.backgroundColor = .systemIndigo
+        button.configuration?.titleTextAttributesTransformer = .init({ attr in
+            var copy = attr
+            copy.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            return copy
+        })
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -139,6 +156,11 @@ final class PortfolioDetailsController: UIViewController {
         button.configuration?.title = "Back"
         button.configuration?.cornerStyle = .capsule
         button.configuration?.background.backgroundColor = .systemGray
+        button.configuration?.titleTextAttributesTransformer = .init({ attr in
+            var copy = attr
+            copy.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            return copy
+        })
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -151,6 +173,18 @@ final class PortfolioDetailsController: UIViewController {
         stack.spacing = 16
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
+    }()
+    
+    private let subtitleLabel: UILabel = {
+        // Create subtitle label
+        let label = UILabel()
+        label.text = "Your Investment Overview. See your performance and make informed decisions."
+        label.font = .systemFont(ofSize: 13, weight: .semibold)
+        label.textColor = .tertiaryLabel
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     override func viewDidLoad() {
@@ -167,7 +201,7 @@ final class PortfolioDetailsController: UIViewController {
         view.backgroundColor = .systemGray5
         view.layer.cornerRadius = 36
         view.layer.masksToBounds = true
-        title = "Portfolio Details"
+        title = "Details"
         
         [assetsStack, actionStack].forEach { view.addSubview($0) }
     }
@@ -182,7 +216,7 @@ final class PortfolioDetailsController: UIViewController {
             actionStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
             actionStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             actionStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            actionStack.heightAnchor.constraint(equalToConstant: 56)
+            actionStack.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
     
@@ -234,6 +268,11 @@ final class TradeViewController: UIViewController {
         button.configuration?.baseBackgroundColor = .systemGreen
         button.configuration?.cornerStyle = .large
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.configuration?.titleTextAttributesTransformer = .init({ attr in
+            var copy = attr
+            copy.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            return copy
+        })
         return button
     }()
     
@@ -243,6 +282,11 @@ final class TradeViewController: UIViewController {
         button.configuration?.baseBackgroundColor = .systemRed
         button.configuration?.cornerStyle = .large
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.configuration?.titleTextAttributesTransformer = .init({ attr in
+            var copy = attr
+            copy.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            return copy
+        })
         return button
     }()
     
@@ -252,6 +296,11 @@ final class TradeViewController: UIViewController {
         button.configuration?.cornerStyle = .large
         button.configuration?.background.backgroundColor = .systemGray
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.configuration?.titleTextAttributesTransformer = .init({ attr in
+            var copy = attr
+            copy.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            return copy
+        })
         return button
     }()
     

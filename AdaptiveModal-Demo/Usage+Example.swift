@@ -11,7 +11,7 @@ import UIKit
 final class ViewController: UIViewController {
 
     // Delegate responsible for managing the custom presentation and transition animations.
-    let transitionDelegate = PresentationController()
+    let transitionDelegate = PresentationController(configuration: .default)
     
     // Button that triggers the modal presentation when tapped.
     private let exampleButton: UIButton = {
@@ -19,7 +19,23 @@ final class ViewController: UIViewController {
         let button = UIButton(configuration: .plain())
         // Set the title for the button.
         button.configuration?.title = "Present Modal"
+        button.configuration?.titleTextAttributesTransformer = .init({ attr in
+            var attr = attr
+            attr.font = .systemFont(ofSize: 17, weight: .medium)
+            return attr
+            
+        })
         return button
+    }()
+    
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Tap the button to present a modal view controller using a custom transitioning delegate."
+        label.textColor = .tertiaryLabel
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        return label
     }()
     
     // Called after the controller's view is loaded into memory.
@@ -37,12 +53,20 @@ final class ViewController: UIViewController {
         view.backgroundColor = .systemGray6
         // Add the example button to the main view.
         view.addSubview(exampleButton)
+        view.addSubview(descriptionLabel)
+        
+        
         exampleButton.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // Center the example button horizontally and adjust its vertical position.
         NSLayoutConstraint.activate([
             exampleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            exampleButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 300)
+            exampleButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 300),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: exampleButton.bottomAnchor, constant: 24),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
     

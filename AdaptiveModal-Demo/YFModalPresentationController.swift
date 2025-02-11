@@ -167,6 +167,14 @@ public final class YFModalPresentationController: UIPresentationController {
 // MARK: - UI Presentation Controller
 
 public final class PresentationController: NSObject, UIViewControllerTransitioningDelegate {
+    
+    private let configuration: YFModalPresentationConfiguration
+    
+    public init(configuration: YFModalPresentationConfiguration) {
+        self.configuration = configuration
+        super.init()
+    }
+    
     public func presentationController(
         forPresented presented: UIViewController,
         presenting: UIViewController?,
@@ -175,7 +183,7 @@ public final class PresentationController: NSObject, UIViewControllerTransitioni
         YFModalPresentationController(
             presentedViewController: presented,
             presenting: presenting,
-            configuration: .default
+            configuration: configuration
         )
     }
 }
