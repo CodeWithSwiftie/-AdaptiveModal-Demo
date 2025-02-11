@@ -6,27 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3E6E156A2D5B75CC00EF6908 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 3E6E15692D5B75CC00EF6908 /* Readme.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		3E6E154B2D5B43C000EF6908 /* UIPresentationController + Transitioning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIPresentationController + Transitioning.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6E154B2D5B43C000EF6908 /* AdaptiveModal-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AdaptiveModal-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6E15692D5B75CC00EF6908 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3E6E155D2D5B43C100EF6908 /* Exceptions for "UIPresentationController + Transitioning" folder in "UIPresentationController + Transitioning" target */ = {
+		3E6E155D2D5B43C100EF6908 /* Exceptions for "AdaptiveModal-Demo" folder in "AdaptiveModal-Demo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				App/Info.plist,
 			);
-			target = 3E6E154A2D5B43C000EF6908 /* UIPresentationController + Transitioning */;
+			target = 3E6E154A2D5B43C000EF6908 /* AdaptiveModal-Demo */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3E6E154D2D5B43C000EF6908 /* UIPresentationController + Transitioning */ = {
+		3E6E154D2D5B43C000EF6908 /* AdaptiveModal-Demo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				3E6E155D2D5B43C100EF6908 /* Exceptions for "UIPresentationController + Transitioning" folder in "UIPresentationController + Transitioning" target */,
+				3E6E155D2D5B43C100EF6908 /* Exceptions for "AdaptiveModal-Demo" folder in "AdaptiveModal-Demo" target */,
 			);
-			path = "UIPresentationController + Transitioning";
+			path = "AdaptiveModal-Demo";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -45,15 +50,16 @@
 		3E6E15422D5B43C000EF6908 = {
 			isa = PBXGroup;
 			children = (
-				3E6E154D2D5B43C000EF6908 /* UIPresentationController + Transitioning */,
+				3E6E154D2D5B43C000EF6908 /* AdaptiveModal-Demo */,
 				3E6E154C2D5B43C000EF6908 /* Products */,
+				3E6E15692D5B75CC00EF6908 /* Readme.md */,
 			);
 			sourceTree = "<group>";
 		};
 		3E6E154C2D5B43C000EF6908 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E6E154B2D5B43C000EF6908 /* UIPresentationController + Transitioning.app */,
+				3E6E154B2D5B43C000EF6908 /* AdaptiveModal-Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3E6E154A2D5B43C000EF6908 /* UIPresentationController + Transitioning */ = {
+		3E6E154A2D5B43C000EF6908 /* AdaptiveModal-Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E6E155E2D5B43C100EF6908 /* Build configuration list for PBXNativeTarget "UIPresentationController + Transitioning" */;
+			buildConfigurationList = 3E6E155E2D5B43C100EF6908 /* Build configuration list for PBXNativeTarget "AdaptiveModal-Demo" */;
 			buildPhases = (
 				3E6E15472D5B43C000EF6908 /* Sources */,
 				3E6E15482D5B43C000EF6908 /* Frameworks */,
@@ -74,13 +80,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				3E6E154D2D5B43C000EF6908 /* UIPresentationController + Transitioning */,
+				3E6E154D2D5B43C000EF6908 /* AdaptiveModal-Demo */,
 			);
-			name = "UIPresentationController + Transitioning";
+			name = "AdaptiveModal-Demo";
 			packageProductDependencies = (
 			);
 			productName = "UIPresentationController + Transitioning";
-			productReference = 3E6E154B2D5B43C000EF6908 /* UIPresentationController + Transitioning.app */;
+			productReference = 3E6E154B2D5B43C000EF6908 /* AdaptiveModal-Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3E6E15462D5B43C000EF6908 /* Build configuration list for PBXProject "UIPresentationController + Transitioning" */;
+			buildConfigurationList = 3E6E15462D5B43C000EF6908 /* Build configuration list for PBXProject "AdaptiveModal-Demo" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -112,7 +118,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3E6E154A2D5B43C000EF6908 /* UIPresentationController + Transitioning */,
+				3E6E154A2D5B43C000EF6908 /* AdaptiveModal-Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E6E156A2D5B75CC00EF6908 /* Readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,14 +152,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YW2TK6MJ5H;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "UIPresentationController + Transitioning/Info.plist";
+				INFOPLIST_FILE = "AdaptiveModal-Demo/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -173,14 +180,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YW2TK6MJ5H;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "UIPresentationController + Transitioning/Info.plist";
+				INFOPLIST_FILE = "AdaptiveModal-Demo/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,7 +323,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E6E15462D5B43C000EF6908 /* Build configuration list for PBXProject "UIPresentationController + Transitioning" */ = {
+		3E6E15462D5B43C000EF6908 /* Build configuration list for PBXProject "AdaptiveModal-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E6E15612D5B43C100EF6908 /* Debug */,
@@ -325,7 +332,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E6E155E2D5B43C100EF6908 /* Build configuration list for PBXNativeTarget "UIPresentationController + Transitioning" */ = {
+		3E6E155E2D5B43C100EF6908 /* Build configuration list for PBXNativeTarget "AdaptiveModal-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E6E155F2D5B43C100EF6908 /* Debug */,

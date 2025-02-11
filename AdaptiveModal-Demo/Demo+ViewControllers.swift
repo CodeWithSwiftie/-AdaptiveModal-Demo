@@ -246,7 +246,6 @@ final class TradeViewController: UIViewController {
         return button
     }()
     
-    // Создание кастомной Back кнопки
     private let backButton: UIButton = {
         let button = UIButton(configuration: .filled())
         button.configuration?.title = "Back"
@@ -268,7 +267,6 @@ final class TradeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Скрытие стандартной кнопки Back
         navigationItem.hidesBackButton = true
         
         setupUI()
