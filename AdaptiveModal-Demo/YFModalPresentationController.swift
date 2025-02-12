@@ -313,24 +313,25 @@ private extension UIViewController {
                 
                 return topVC.view
             }
-            return isViewLoaded ? view : loadAndReturnView()
+            
+            return view
         }()
-        
+
         // Ensure layout is applied before measuring.
         targetView.setNeedsLayout()
         targetView.layoutIfNeeded()
-        
-        // If the view's bounds are zero, return a zero size as fallback.
-        guard targetView.bounds != .zero else {
-            assertionFailure("Target view has zero bounds - cannot calculate preferred content size.")
-            return .zero
-        }
         
         let calculatedSize = targetView.systemLayoutSizeFitting(
             targetSize,
             withHorizontalFittingPriority: .required,
             verticalFittingPriority: .defaultLow
         )
+        
+        // If the view's bounds are zero, return a zero size as fallback.
+        guard calculatedSize != .zero else {
+            assertionFailure("Bounds of view to measure are zero. \(targetView)")
+            return .zero
+        }
         
         // If auto layout did not compute a valid height, calculate height manually by summing subviews' heights.
         if calculatedSize.height <= .zero {
@@ -341,11 +342,5 @@ private extension UIViewController {
         }
         
         return .init(width: calculatedSize.width, height: calculatedSize.height)
-    }
-    
-    /// Loads the view if needed and returns it. This is a last-resort fallback.
-    func loadAndReturnView() -> UIView {
-        let _ = view
-        return view
     }
 }
