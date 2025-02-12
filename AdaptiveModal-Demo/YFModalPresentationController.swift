@@ -322,6 +322,7 @@ private extension UIViewController {
         
         // If the view's bounds are zero, return a zero size as fallback.
         guard targetView.bounds != .zero else {
+            assertionFailure("Target view has zero bounds - cannot calculate preferred content size.")
             return .zero
         }
         
