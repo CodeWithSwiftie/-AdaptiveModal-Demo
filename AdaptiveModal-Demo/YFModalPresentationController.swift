@@ -86,6 +86,7 @@ public final class YFModalPresentationController: UIPresentationController {
             presenting: presenting
         )
         configureTapGestureRecognizer()
+        applyAppearance(from: configuration)
     }
     
     override public func presentationTransitionWillBegin() {
@@ -161,6 +162,12 @@ public final class YFModalPresentationController: UIPresentationController {
     
     @objc private func touchOnDimmingView() {
         presentingViewController.dismiss(animated: true)
+    }
+    
+    private func applyAppearance(from configuration: YFModalPresentationConfiguration) {
+        presentedView?.backgroundColor = configuration.backgroundColor
+        presentedView?.layer.cornerRadius = configuration.cornerRadius
+        presentedView?.layer.masksToBounds = true
     }
 
 }
